@@ -1,0 +1,8 @@
+<resources>
+    <string name="load_mrect">Load</string>
+    <string name="load_interstitial">Load</string>
+    <string name="show_interstitial">Show</string>
+    <string name="app_name">AppMonet MoPub Sample App</string>
+    <string name="interstitial_header">Interstitial</string>
+    <string name="mrect_header">MRECT</string>
+</resources>
