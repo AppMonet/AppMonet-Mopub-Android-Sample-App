@@ -1,8 +1,8 @@
 package com.monet.sample.mopub
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.monet.bidder.AppMonet
 import com.mopub.mobileads.MoPubErrorCode
 import com.mopub.mobileads.MoPubInterstitial
@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var interstitial: MoPubInterstitial
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         showInterstitial()
     }
 
+    /**
+     * Clean up
+     */
     override fun onDestroy() {
         moPubView.destroy()
         interstitial.destroy()
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity() {
      * Sets up MoPub Interstitial.
      */
     private fun setupMoPubInterstitial() {
-        interstitial = MoPubInterstitial(this, "ADUNIT")
+        interstitial = MoPubInterstitial(this, "a49430ee57ee4401a9eda6098726ce54")
         interstitial.interstitialAdListener = object : MoPubInterstitial.InterstitialAdListener {
             override fun onInterstitialLoaded(interstitial: MoPubInterstitial?) {
                 showToast("Interstitial Loaded")
@@ -46,10 +50,12 @@ class MainActivity : AppCompatActivity() {
                 errorCode: MoPubErrorCode?
             ) {
                 showToast("Interstitial Failed")
+                interstitial?.destroy()
             }
 
             override fun onInterstitialDismissed(interstitial: MoPubInterstitial?) {
                 showToast("Interstitial Dismissed")
+                interstitial?.destroy()
             }
 
             override fun onInterstitialClicked(interstitial: MoPubInterstitial?) {
@@ -62,6 +68,7 @@ class MainActivity : AppCompatActivity() {
      * Sets up MoPubView.
      */
     private fun setupMoPubMrect() {
+        moPubView.adUnitId = "b03e6dccfe9e4abab02470a39c88d5dc"
         moPubView.bannerAdListener = object : MoPubView.BannerAdListener {
             override fun onBannerExpanded(banner: MoPubView?) {
             }
@@ -84,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Implementation on mrect button that will trigger AppMonet's addBids method.
+     * Listener on mrect button that will trigger AppMonet's addBids method.
      */
     private fun loadMrectAd() {
         loadMrect.setOnClickListener {
@@ -94,12 +101,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Listener on load interstitial button that will trigger load on MoPubInterstitial.
+     */
     private fun loadInterstitial() {
         loadInterstitial.setOnClickListener {
+            setupMoPubInterstitial()
             interstitial.load()
         }
     }
 
+    /**
+     * Listener on show interstitial button that will trigger show on MoPubInterstitial.
+     */
     private fun showInterstitial() {
         showInterstitial.setOnClickListener {
             if (interstitial.isReady) {

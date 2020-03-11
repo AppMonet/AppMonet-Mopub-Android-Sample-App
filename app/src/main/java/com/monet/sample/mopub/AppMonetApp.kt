@@ -11,11 +11,11 @@ class AppMonetApp : Application() {
     override fun onCreate() {
         super.onCreate()
         //MoPub initialization
-        val sdkConfiguration = SdkConfiguration.Builder("").build()
+        val sdkConfiguration = SdkConfiguration.Builder("b03e6dccfe9e4abab02470a39c88d5dc").build()
         MoPub.initializeSdk(this, sdkConfiguration, null)
 
         //AppMonet initialization.
-        val appMonetConfiguration = AppMonetConfiguration.Builder().applicationId("ADD_UNIT").build()
+        val appMonetConfiguration = AppMonetConfiguration.Builder().applicationId("3zeuyua").build()
         AppMonet.init(this, appMonetConfiguration)
     }
 }
