@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun loadMrectAd() {
         loadMrect.setOnClickListener {
-            AppMonet.addBids(moPubView, 2000) { moPubView ->
+            AppMonet.addBids(moPubView, 1500) { moPubView ->
                 moPubView.loadAd()
             }
         }
