@@ -4,5 +4,7 @@
     <string name="show_interstitial">Show</string>
     <string name="app_name">AppMonet MoPub Sample App</string>
     <string name="interstitial_header">Interstitial</string>
+    <string name="interstitial_descriptionr">Sample ad will play in full screen</string>
     <string name="mrect_header">MRECT</string>
+    <string name="app_title">MoPub Sample App</string>
 </resources>
