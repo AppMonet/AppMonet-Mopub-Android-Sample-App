@@ -1,4 +1,4 @@
-# AppMonet-Mopub-Sample-App
+# AppMonet Mopub Sample App - Android
 
 ### 1.  Setup
 
