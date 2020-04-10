@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             override fun onBannerExpanded(banner: MoPubView?) {
             }
 
-            override fun onBannerLoaded(banner: MoPubView?) {
+            override fun onBannerLoaded(banner: MoPubView) {
                 showToast("Banner Ad Loaded")
             }
 
